@@ -17,7 +17,7 @@ FONT_LABELS = ("Arial", 15, 'bold')
 
 
 class MultipleQuestions(Frame):
-    def __init__(self, root, questions_amount: str, quiz: questions_bank.QuizSetup):
+    def __init__(self, root, questions_amount: str,player_name: str, quiz: questions_bank.QuizSetup):
         super().__init__()
         self.buttons_var = None
         self.root = root
@@ -182,7 +182,7 @@ class MultipleQuestions(Frame):
         self.canvas_frame.configure(background="white")
         self.canvas_frame.itemconfig(
             self.question_text,
-            text="You reach to the end of the game."
+            text=f"{self.player_name.title()} you reached to the end of the game."
         )
         disable_buttons = [self.answer_one_b, self.answer_two_b, self.answer_three_b, self.answer_four_b]
         for button in range(len(disable_buttons)):

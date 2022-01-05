@@ -32,6 +32,7 @@ QUESTION_TYPE = ['multiple', 'boolean']
 class QuizSetup(Frame):
     def __init__(self, root):
         super().__init__()
+        self.player_name = None
         self.root = root
         self.config(bg="white")
         # Setup photos
@@ -216,10 +217,12 @@ class QuizSetup(Frame):
 
     def start_quiz(self):
         if len(self.player_entry.get()) > 0:
+            self.player_name = self.player_entry.get()
             if self.question_type_var.get() == "multiple":
                 mq.MultipleQuestions(
                     self.root,
                     self.question_amount_var.get(),
+                    self.player_name,
                     qb.QuizSetup(
                         self.player_entry.get(),
                         int(self.question_amount_var.get()),
@@ -233,6 +236,7 @@ class QuizSetup(Frame):
                 bq.BooleanQuestion(
                     self.root,
                     self.question_amount_var.get(),
+                    self.player_name,
                     qb.QuizSetup(
                         self.player_entry.get(),
                         int(self.question_amount_var.get()),
@@ -244,4 +248,3 @@ class QuizSetup(Frame):
                 self.destroy()
         else:
             messagebox.showinfo(title="Attention", message="Please, write your name.")
-

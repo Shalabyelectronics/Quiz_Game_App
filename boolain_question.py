@@ -12,12 +12,14 @@ FONT_LABELS = ("Arial", 15, 'bold')
 
 
 class BooleanQuestion(Frame):
-    def __init__(self, root, questions_amount: str, quiz: questions_bank.QuizSetup):
+    def __init__(self, root,questions_amount: str, player_name: str, quiz: questions_bank.QuizSetup):
         super().__init__()
         self.root = root
         self.number_of_question = questions_amount
+        self.player_name = player_name
         self.quiz_bank = quiz
         self.config(bg="white")
+        print(self.player_name)
         # Setup Photos
         self.question_frame_img = PhotoImage(file="img/question_fram.png")
         self.true_image = PhotoImage(file="img/true_button.png")
@@ -151,12 +153,12 @@ class BooleanQuestion(Frame):
         self.canvas_frame.configure(background="white")
         self.canvas_frame.itemconfig(
             self.question_text,
-            text="You reach to the end of the game."
+            text=f"{self.player_name.title()} you reached to the end of the game."
         )
         self.true_button.configure(state="disabled")
         self.false_button.configure(state="disabled")
-        self.go_home_b.grid(column=0, row=5, columnspan=2, padx=15, pady=10, sticky=E + W)
-        self.play_again_b.grid(column=0, row=4, columnspan=2, padx=15, pady=10, sticky=E + W)
+        self.go_home_b.grid(column=0, row=5, columnspan=3, padx=15, pady=10, sticky=E + W)
+        self.play_again_b.grid(column=0, row=4, columnspan=3, padx=15, pady=10, sticky=E + W)
 
     def play_again_same(self):
         self.quiz_bank.question_index = 0
