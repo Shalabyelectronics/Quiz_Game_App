@@ -3,6 +3,8 @@ import welcome_frame as wf
 import questions_bank
 import os
 import pandas as pd
+from tkinter import messagebox
+
 
 FOREGROUND_COLOR = "#234e71"
 WRONG_ANSWER = "#e06565"
@@ -125,10 +127,22 @@ class BooleanQuestion(Frame):
         wf.WelcomeFrame(self.root)
 
     def start_boolean_quiz(self):
-        self.canvas_frame.itemconfig(
-            self.question_text,
-            text=self.quiz_bank.question
-        )
+        if len(self.quiz_bank.quiz_list) > 0:
+            self.canvas_frame.itemconfig(
+                self.question_text,
+                text=self.quiz_bank.question
+            )
+        else:
+            attention = messagebox.showinfo(
+                title="Attention",
+                message="We can't load the questions data file please try again!!"
+            )
+            print(attention)
+            if attention == 'ok':
+                self.destroy()
+                wf.WelcomeFrame(self.root)
+
+
 
     def answer_checked(self, answer):
         if self.quiz_bank.check_answers(answer):

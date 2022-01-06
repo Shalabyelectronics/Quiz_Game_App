@@ -4,78 +4,8 @@
         {
             "category": "General Knowledge",
             "type": "boolean",
-            "difficulty": "easy",
-            "question": "The Great Wall of China is visible from the moon.",
-            "correct_answer": "False",
-            "incorrect_answers": [
-                "True"
-            ]
-        },
-        {
-            "category": "General Knowledge",
-            "type": "boolean",
-            "difficulty": "easy",
-            "question": "It is automatically considered entrapment in the United States if the police sell you illegal substances without revealing themselves.",
-            "correct_answer": "False",
-            "incorrect_answers": [
-                "True"
-            ]
-        },
-        {
-            "category": "General Knowledge",
-            "type": "boolean",
-            "difficulty": "easy",
-            "question": "Nutella is produced by the German company Ferrero.",
-            "correct_answer": "False",
-            "incorrect_answers": [
-                "True"
-            ]
-        },
-        {
-            "category": "General Knowledge",
-            "type": "boolean",
-            "difficulty": "easy",
-            "question": "A scientific study on peanuts in bars found traces of over 100 unique specimens of urine.",
-            "correct_answer": "False",
-            "incorrect_answers": [
-                "True"
-            ]
-        },
-        {
-            "category": "General Knowledge",
-            "type": "boolean",
-            "difficulty": "easy",
-            "question": "The Sun rises from the North.",
-            "correct_answer": "False",
-            "incorrect_answers": [
-                "True"
-            ]
-        },
-        {
-            "category": "General Knowledge",
-            "type": "boolean",
-            "difficulty": "easy",
-            "question": "Pluto is a planet.",
-            "correct_answer": "False",
-            "incorrect_answers": [
-                "True"
-            ]
-        },
-        {
-            "category": "General Knowledge",
-            "type": "boolean",
-            "difficulty": "easy",
-            "question": "Scotland voted to become an independent country during the referendum from September 2014.",
-            "correct_answer": "False",
-            "incorrect_answers": [
-                "True"
-            ]
-        },
-        {
-            "category": "General Knowledge",
-            "type": "boolean",
-            "difficulty": "easy",
-            "question": "The National Animal of Scotland is the Unicorn.",
+            "difficulty": "medium",
+            "question": "&quot;Typewriter&quot; is the longest word that can be typed using only the first row on a QWERTY keyboard.",
             "correct_answer": "True",
             "incorrect_answers": [
                 "False"
@@ -84,8 +14,8 @@
         {
             "category": "General Knowledge",
             "type": "boolean",
-            "difficulty": "easy",
-            "question": "Slovakia is a member of European Union-",
+            "difficulty": "medium",
+            "question": "The sum of all the numbers on a roulette wheel is 666.",
             "correct_answer": "True",
             "incorrect_answers": [
                 "False"
@@ -94,8 +24,78 @@
         {
             "category": "General Knowledge",
             "type": "boolean",
-            "difficulty": "easy",
-            "question": "The mitochondria is the powerhouse of the cell.",
+            "difficulty": "medium",
+            "question": "Cucumbers are usually more than 90% water.",
+            "correct_answer": "True",
+            "incorrect_answers": [
+                "False"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "boolean",
+            "difficulty": "medium",
+            "question": "Sitting for more than three hours a day can cut two years off a person&#039;s life expectancy.",
+            "correct_answer": "True",
+            "incorrect_answers": [
+                "False"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "boolean",
+            "difficulty": "medium",
+            "question": "The French word for &quot;glass&quot; is &quot;glace&quot;.",
+            "correct_answer": "False",
+            "incorrect_answers": [
+                "True"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "boolean",
+            "difficulty": "medium",
+            "question": "&quot;Santa Claus&quot; is a variety of melon.",
+            "correct_answer": "True",
+            "incorrect_answers": [
+                "False"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "boolean",
+            "difficulty": "medium",
+            "question": "Francis Bacon died from a fatal case of pneumonia while he was attempting to preserve meat by stuffing a chicken with snow.",
+            "correct_answer": "True",
+            "incorrect_answers": [
+                "False"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "boolean",
+            "difficulty": "medium",
+            "question": "Popcorn was invented in 1871 by Frederick W. Rueckheim in the USA where he sold the snack on the streets of Chicago.",
+            "correct_answer": "False",
+            "incorrect_answers": [
+                "True"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "boolean",
+            "difficulty": "medium",
+            "question": "&quot;Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo.&quot; is a grammatically correct sentence.",
+            "correct_answer": "True",
+            "incorrect_answers": [
+                "False"
+            ]
+        },
+        {
+            "category": "General Knowledge",
+            "type": "boolean",
+            "difficulty": "medium",
+            "question": "Instant mashed potatoes were invented by Canadian Edward Asselbergs in 1962.",
             "correct_answer": "True",
             "incorrect_answers": [
                 "False"

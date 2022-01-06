@@ -233,18 +233,22 @@ class QuizSetup(Frame):
                 )
                 self.destroy()
             else:
-                bq.BooleanQuestion(
-                    self.root,
-                    self.question_amount_var.get(),
-                    self.player_name,
-                    qb.QuizSetup(
-                        self.player_entry.get(),
-                        int(self.question_amount_var.get()),
-                        self.difficulty_var.get(),
-                        self.question_type_var.get(),
-                        CATEGORY_DICTIONARY[self.category_var.get()]
+                if self.difficulty_var.get() != 'hard':
+                    bq.BooleanQuestion(
+                        self.root,
+                        self.question_amount_var.get(),
+                        self.player_name,
+                        qb.QuizSetup(
+                            self.player_entry.get(),
+                            int(self.question_amount_var.get()),
+                            self.difficulty_var.get(),
+                            self.question_type_var.get(),
+                            CATEGORY_DICTIONARY[self.category_var.get()]
+                        )
                     )
-                )
-                self.destroy()
-        else:
-            messagebox.showinfo(title="Attention", message="Please, write your name.")
+                    self.destroy()
+                else:
+                    messagebox.showinfo(
+                        title='Attention',
+                        message="Hard difficulty is not available for this type of quiz!!"
+                    )

@@ -78,4 +78,3 @@ class QuizSetup:
             return True
         else:
             return False
-

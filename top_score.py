@@ -133,7 +133,7 @@ class TopPlayers(Frame):
                 ascending=[False],
                 inplace=True
             )
-            player_data.to_csv('top_player.csv', index=False)
+            player_data.to_csv('data/top_player.csv', index=False)
             top_players = pd.read_csv("data/top_player.csv")
             players_name = top_players['player name'].tolist()
             players_score = top_players['player score'].tolist()
