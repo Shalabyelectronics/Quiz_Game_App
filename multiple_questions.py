@@ -1,7 +1,8 @@
 from tkinter import *
-
 import questions_bank
 import welcome_frame as wf
+import pandas as pd
+import os
 
 THEMES_COLOR = "#25bede"
 FOREGROUND_COLOR = "#234e71"
@@ -21,6 +22,7 @@ class MultipleQuestions(Frame):
         super().__init__()
         self.buttons_var = None
         self.root = root
+        self.player_name = player_name
         self.number_of_question = questions_amount
         self.quiz_bank = quiz
         self.config(bg="white")
@@ -179,6 +181,7 @@ class MultipleQuestions(Frame):
         self.start_multiple_quiz()
 
     def end_of_game(self):
+        self.save_player_score()
         self.canvas_frame.configure(background="white")
         self.canvas_frame.itemconfig(
             self.question_text,
@@ -204,3 +207,29 @@ class MultipleQuestions(Frame):
         self.start_multiple_quiz()
         self.play_again_b.grid_remove()
         self.go_home_b.grid_remove()
+
+    def save_player_score(self):
+        if os.path.isfile('data/top_player.csv'):
+            top_player_data = pd.read_csv('data/top_player.csv')
+            add_data = top_player_data.to_dict()
+            index_key = 0
+            if self.player_name not in add_data['player name'].values():
+                check_last = add_data['player name'].keys()
+                for i in check_last:
+                    index_key = i + 1
+                add_data['player name'][index_key] = self.player_name
+                add_data['player score'][index_key] = self.quiz_bank.score
+                update_date = pd.DataFrame(add_data)
+                update_date.to_csv("data/top_player.csv", index=False)
+            else:
+                player_key = list(add_data['player name'].keys())[list(add_data['player name'].values()).index(self.player_name)]
+                add_data['player score'][player_key] = self.quiz_bank.score
+                update_date = pd.DataFrame(add_data)
+                update_date.to_csv("data/top_player.csv", index=False)
+        else:
+            player_score = {
+                'player name': [self.player_name],
+                'player score': [self.quiz_bank.score]
+            }
+            top_player = pd.DataFrame(player_score)
+            top_player.to_csv("data/top_player.csv", index=False)

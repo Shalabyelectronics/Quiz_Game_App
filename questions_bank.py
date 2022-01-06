@@ -55,10 +55,17 @@ class QuizSetup:
         self.correct_answer = html.unescape(self.quiz_list[self.question_index]['correct_answer'])
         self.all_answers_temp = []
 
+    def boolean_quiz(self):
+        self.question = html.unescape(self.quiz_list[self.question_index]['question'])
+        self.correct_answer = html.unescape(self.quiz_list[self.question_index]['correct_answer'])
+
     def next_question(self):
         self.question_index += 1
         self.question_number += 1
-        self.multiple_quiz()
+        if self.type == 'multiple':
+            self.multiple_quiz()
+        else:
+            self.boolean_quiz()
 
     def check_answers(self, answer):
         if answer == self.correct_answer:
@@ -72,5 +79,3 @@ class QuizSetup:
         else:
             return False
 
-    def boolean_quiz(self):
-        pass

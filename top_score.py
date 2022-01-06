@@ -1,9 +1,15 @@
 from tkinter import *
 import welcome_frame as wf
 from tkinter import ttk
+from tkinter import messagebox
+import pandas as pd
+import os
+
 
 GO_HOME_C = "#ec77a5"
 FONT_LABELS = ("Arial", 15, 'bold')
+# FONT_ROWS = ("Arial", )
+
 
 class TopPlayers(Frame):
     def __init__(self, root):
@@ -46,17 +52,17 @@ class TopPlayers(Frame):
         self.style.configure(
             'Treeview',
             background="white",
-            forground="white",
+            forground="blue",
             rowheight=50,
-            font=('Arial', 10, "bold"),
-            fieldbackground="blue"
+            font=('Arial', 15, "bold"),
+            fieldbackground="white"
         )
         self.style.configure(
             'Treeview.Heading',
             background="white",
-            forground='white',
+            forground='blue',
             rowheight=15,
-            font=('Arial', 15, "bold"),
+            font=('Arial', 18, "bold"),
             fieldbackground='white'
         )
         self.style.map(
@@ -106,7 +112,7 @@ class TopPlayers(Frame):
             font=FONT_LABELS,
             command=self.go_home
         )
-
+        self.load_player_data()
         # set widgets and frame
         self.header_canvas.grid(column=0, row=0, padx=15, pady=15)
         self.top_players_table.grid(column=0, row=2, padx=15, pady=15)
@@ -117,3 +123,32 @@ class TopPlayers(Frame):
     def go_home(self):
         self.destroy()
         wf.WelcomeFrame(self.root)
+
+    def load_player_data(self):
+        if os.path.isfile("data/top_player.csv"):
+            player_data = pd.read_csv("data/top_player.csv")
+            player_data.sort_values(
+                ['player score'],
+                axis=0,
+                ascending=[False],
+                inplace=True
+            )
+            player_data.to_csv('top_player.csv', index=False)
+            top_players = pd.read_csv("data/top_player.csv")
+            players_name = top_players['player name'].tolist()
+            players_score = top_players['player score'].tolist()
+            for i in range(len(players_score)):
+                self.top_players_table.insert(
+                    parent='',
+                    index='end',
+                    iid=i,
+                    values=(players_name[i], players_score[i])
+                )
+        else:
+            messagebox.showinfo(
+                title="Attention",
+                message="There is no data saved yet!!"
+            )
+
+
+
